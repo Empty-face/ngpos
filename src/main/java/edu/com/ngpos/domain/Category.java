@@ -1,15 +1,14 @@
 package edu.com.ngpos.domain;
 
+import edu.com.ngpos.core.domain.BaseEntity;
 import org.springframework.stereotype.Component;
-
-import java.io.Serializable;
 
 /**
  * 产品类别
  * 标准POJO
  */
 @Component
-public class Category implements Serializable {
+public class Category extends BaseEntity {
     private Long categoryId;
 
     private String categoryName;

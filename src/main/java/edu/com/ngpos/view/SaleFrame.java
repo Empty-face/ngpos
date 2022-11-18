@@ -22,7 +22,7 @@ import javax.swing.table.JTableHeader;
  * 仅供OOAD课程测试使用
  */
 
-@Component
+//@Component
 public class SaleFrame extends JFrame implements ActionListener {
     private final Register register;
 

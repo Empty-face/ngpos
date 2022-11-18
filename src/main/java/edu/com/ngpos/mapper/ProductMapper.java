@@ -1,38 +1,14 @@
-package edu.com.ngpos.service;
+package edu.com.ngpos.mapper;
 
 import edu.com.ngpos.domain.ProductDescription;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
-/**
- * 产品服务接口
- */
-public interface IProductService {
-    /**
-     * 根据编号获得product对象
-     * @param productSn
-     * @return
-     */
+@Mapper
+public interface ProductMapper {
     public ProductDescription getProductBySn(String productSn);
-    /**
-     * 查询所有的product
-     * @return
-     */
-    public List<ProductDescription> listAllProduct(ProductDescription productDescription);
 
-    /**
-     * 根据SN找产品
-     * @param productSn
-     * @return
-     */
-    public ProductDescription getProductByProductSn(String productSn);
-
-    /**
-     * 列出所有产品
-     * @return
-     */
     public List<ProductDescription> listAllProduct();
-
     /**
      * 查询单个产品
      * @param productId 主键
@@ -64,4 +40,5 @@ public interface IProductService {
      * @return 影响记录数
      */
     public int deleteProductById(Long productId);
+
 }

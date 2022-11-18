@@ -26,7 +26,10 @@ class ProductServiceImplTest {
 
     @Test
     void listAllProduct() {
-        List<ProductDescription> products = productService.listAllProduct();
-        Assertions.assertTrue(products.size()==6);
+        ProductDescription p = new ProductDescription();
+//        p.setProductSn("1005");
+        p.setProductName("笔");
+        List<ProductDescription> products = productService.listAllProduct(p);
+        System.out.println(products);
     }
 }

@@ -1,5 +1,6 @@
 package edu.com.ngpos.domain;
 
+import edu.com.ngpos.core.domain.BaseEntity;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import java.math.BigDecimal;
  *  产品
  */
 @Component
-public class ProductDescription implements Serializable {
+public class ProductDescription extends BaseEntity {
 
     private Long productId;
 
@@ -20,6 +21,8 @@ public class ProductDescription implements Serializable {
     private String productName;
 
     private BigDecimal price;
+
+    private Long categoryId;
 
     public ProductDescription(){
 
@@ -71,6 +74,14 @@ public class ProductDescription implements Serializable {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     @Override
