@@ -1,11 +1,15 @@
 package edu.com.ngpos.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import edu.com.ngpos.core.domain.AjaxResult;
 import edu.com.ngpos.domain.Category;
 import edu.com.ngpos.service.ICategoryService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -48,5 +52,13 @@ public class CategoryController {
     public AjaxResult remove(@PathVariable Long categoryId) {
         int rows = categoryService.deleteCategory(categoryId);
         return rows > 0 ? AjaxResult.success("删除成功") : AjaxResult.error("删除失败");
+    }
+    @ApiOperation("分页查询")
+    @GetMapping("/page")
+    public AjaxResult page(@RequestParam("pageNum") Integer pageNum, @RequestParam("pageSize") Integer pageSize, Category category){
+        PageHelper.startPage(pageNum,pageSize);
+        List<Category> list = categoryService.listAllCategory();
+        PageInfo<Category> pageInfo = new PageInfo<>(list);
+        return  AjaxResult.success(pageInfo);
     }
 }
